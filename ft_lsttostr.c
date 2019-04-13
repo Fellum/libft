@@ -14,12 +14,10 @@
 
 char	*ft_lsttostr(t_list *lst)
 {
-	size_t	o_length;
 	t_list	*tmp;
 	char	*res;
 
 	res = NULL;
-	o_length = 0;
 	tmp = lst;
 	while (tmp)
 	{

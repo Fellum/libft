@@ -16,5 +16,5 @@ char	*ft_strnew(size_t size)
 {
 	if (size == ULONG_MAX)
 		return (NULL);
-	return (char *)ft_memalloc(size + 1);
+	return (ft_memalloc(size + 1));
 }

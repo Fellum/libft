@@ -22,7 +22,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (ft_strdup(s1));
 	if (!s1 && !s2)
 		return (NULL);
-	res = ft_strnew(ft_strlen(s1) + ft_strlen(s2));
+	res = ft_strnew(ft_strlen(s2) + ft_strlen(s1));
 	if (!res)
 		return (NULL);
 	res = ft_strcpy(res, s1);
