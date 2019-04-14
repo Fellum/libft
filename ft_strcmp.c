@@ -17,6 +17,8 @@ int		ft_strcmp(const char *s1, const char *s2)
 	size_t cur;
 
 	cur = 0;
+	if (s1 == s2)
+		return (0);
 	while (s1[cur] == s2[cur])
 	{
 		if (!s1[cur] && !s2[cur])

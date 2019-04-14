@@ -1,33 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 11:37:37 by jleann            #+#    #+#             */
-/*   Updated: 2019/04/03 11:37:38 by jleann           ###   ########.fr       */
+/*   Created: 2019/04/05 18:50:39 by jleann            #+#    #+#             */
+/*   Updated: 2019/04/05 18:50:40 by jleann           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_lstaddend(t_list **alst, t_list *new)
 {
-	size_t	cur;
+	t_list	*tmp;
 
-	if (s1 == s2)
-		return (0);
-	cur = 0;
-	while (cur < n && ((t_byte *)s1)[cur] == ((t_byte *)s2)[cur])
-		cur++;
-	if (cur == n)
-		return (0);
+	if (!alst || !new)
+		return ;
+	if (!*alst)
+	{
+		*alst = new;
+	}
 	else
-		return (((t_byte *)s1)[cur] - ((t_byte *)s2)[cur]);
-}
-#include <string.h>
-int main()
-{
-	memcpy("sdasd", NULL, 2);
+	{
+		tmp = *alst;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
 }

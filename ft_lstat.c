@@ -1,33 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstat.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/03 11:37:37 by jleann            #+#    #+#             */
-/*   Updated: 2019/04/03 11:37:38 by jleann           ###   ########.fr       */
+/*   Created: 2019/04/05 18:50:39 by jleann            #+#    #+#             */
+/*   Updated: 2019/04/05 18:50:40 by jleann           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+void	*ft_lstat(t_list *alst, size_t at)
 {
-	size_t	cur;
+	size_t cur;
 
-	if (s1 == s2)
-		return (0);
+	if (!alst)
+		return (NULL);
 	cur = 0;
-	while (cur < n && ((t_byte *)s1)[cur] == ((t_byte *)s2)[cur])
+	while (alst)
+	{
+		if (cur == at)
+			return (alst);
+		alst = alst->next;
 		cur++;
-	if (cur == n)
-		return (0);
-	else
-		return (((t_byte *)s1)[cur] - ((t_byte *)s2)[cur]);
-}
-#include <string.h>
-int main()
-{
-	memcpy("sdasd", NULL, 2);
+	}
+	return (NULL);
 }

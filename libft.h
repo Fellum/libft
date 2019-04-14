@@ -93,5 +93,9 @@ void					ft_lstdelone(t_list **alst, void (*del)(void*,
 										size_t));
 size_t					ft_lstlen(t_list *lst);
 char					*ft_lsttostr(t_list *lst);
+void					ft_lstaddend(t_list **alst, t_list *new);
+void					*ft_lstat(t_list *alst, size_t at);
+void					*ft_lstfind(t_list *alst, void *content,
+		int (*f)(void *, void *));
 
 #endif
