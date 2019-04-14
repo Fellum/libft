@@ -26,8 +26,3 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 	else
 		return (((t_byte *)s1)[cur] - ((t_byte *)s2)[cur]);
 }
-#include <string.h>
-int main()
-{
-	memcpy("sdasd", NULL, 2);
-}
