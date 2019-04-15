@@ -46,7 +46,7 @@ char		*ft_itoa(int n)
 	len = sign + calc_len(n);
 	res = ft_strnew(len);
 	if (!res)
-		return (0);
+		return (NULL);
 	tmp = sign ? -n : n;
 	while (len-- > sign)
 	{

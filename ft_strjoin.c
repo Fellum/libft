@@ -15,6 +15,8 @@
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*res;
+	size_t	len1;
+	size_t	len2;
 
 	if (!s1 && s2)
 		return (ft_strdup(s2));
@@ -22,7 +24,11 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		return (ft_strdup(s1));
 	if (!s1 && !s2)
 		return (NULL);
-	res = ft_strnew(ft_strlen(s2) + ft_strlen(s1));
+	len1 = ft_strlen(s1);
+	len2 = ft_strlen(s2);
+	if (len2 > ULONG_MAX - len1 - 1)
+		return (NULL);
+	res = ft_strnew(len1 + len2);
 	if (!res)
 		return (NULL);
 	res = ft_strcpy(res, s1);

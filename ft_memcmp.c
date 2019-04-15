@@ -16,8 +16,6 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	cur;
 
-	if (s1 == s2)
-		return (0);
 	cur = 0;
 	while (cur < n && ((t_byte *)s1)[cur] == ((t_byte *)s2)[cur])
 		cur++;
