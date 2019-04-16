@@ -60,7 +60,6 @@ static void		free_arr(char **arr, size_t cur_word)
 	cur = 0;
 	while (cur < cur_word)
 		free(arr[cur++]);
-	cur = 0;
 	free(arr);
 }
 
