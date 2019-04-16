@@ -18,7 +18,8 @@ static void		del_elem(void *content, size_t content_size)
 	free(content);
 }
 
-static int		main_loop(t_list *lst, t_list **begin, t_list *(*f)(t_list *elem))
+static int		main_loop(t_list *lst, t_list **begin,
+		t_list *(*f)(t_list *elem))
 {
 	t_list *cur;
 	t_list *tmp;
@@ -56,4 +57,3 @@ t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		return (NULL);
 	return (begin);
 }
-
