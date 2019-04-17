@@ -3,6 +3,7 @@
 !Makefile
 !srcs/
 !srcs/ft_*.c
+!includes/
 !includes/*.h
 !author
 
