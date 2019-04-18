@@ -15,6 +15,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <string.h>
+# include "ft_get_next_line.h"
 
 # ifndef LONG_MAX
 #  define LONG_MAX	9223372036854775807
