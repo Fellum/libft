@@ -12,13 +12,14 @@
 
 #include "libft.h"
 
-void	*ft_lstfind(t_list *alst, void *content, int (*f)(void *, void *))
+void	*ft_lstfind(t_list *alst, void *content, int (*f)(void *, void *,
+		size_t size)
 {
 	if (!alst || !f)
 		return (NULL);
 	while (alst)
 	{
-		if (f(alst->content, content) == 0)
+		if (f(alst->content, content, size) == 0)
 			return (alst);
 		alst = alst->next;
 	}

@@ -42,7 +42,7 @@ int		read_loop(char **fds, int fd)
 	free(buff);
 	if (res == -1)
 		return (GNL_ERROR);
-	return (GNL_SUCCES);
+	return (GNL_SUCCESS);
 }
 
 int		endl_found_case(char **fds, char **line, char *tmp)
@@ -64,28 +64,24 @@ int		endl_found_case(char **fds, char **line, char *tmp)
 		free(*fds);
 		*fds = NULL;
 	}
-	return (GNL_SUCCES);
+	return (GNL_SUCCESS);
 }
 
 int		ft_get_next_line(const int fd, char **line)
 {
 	static char *fds[GNL_MAX_FD];
-	char		*tmp;
-
+	char			*tmp;
+	
 	if (fd < 0 || fd > GNL_MAX_FD || !line || BUFF_SIZE + 1 < 1)
 		return (GNL_ERROR);
-	if (!fds[fd] || (fds[fd] && !(tmp = ft_strchr(fds[fd], '\n'))))
-	{
-		if (read_loop(fds, fd) != GNL_SUCCES)
-			return (GNL_ERROR);
-	}
+	if ((!fds[fd] || (fds[fd] && !(tmp = ft_strchr(fds[fd], '\n')))) &&
+											read_loop(fds, fd) != GNL_SUCCESS)
+		return (GNL_ERROR);
 	if (fds[fd] && (tmp = ft_strchr(fds[fd], '\n')))
 		return (endl_found_case(fds + fd, line, tmp));
 	else if (!fds[fd])
 		return (GNL_END_OF_FILE);
-	if (!(*line = ft_strdup(fds[fd])))
-		return (GNL_ERROR);
-	free(fds[fd]);
+	*line = fds[fd];
 	fds[fd] = NULL;
-	return (GNL_SUCCES);
+	return (GNL_SUCCESS);
 }
