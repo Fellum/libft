@@ -1,9 +1,8 @@
 *
 !.gitignore
 !Makefile
-!srcs/
-!srcs/ft_*.c
-!includes/
-!includes/*.h
+!src/
+!src/*
+!include/
+!include/*
 !author
-!CMakeLists.txt
