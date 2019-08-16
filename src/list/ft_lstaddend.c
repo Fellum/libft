@@ -10,23 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
 
-void	ft_lstaddend(t_list **alst, t_list *new)
+void	ft_lstaddend(t_list *alst, t_list_node *new)
 {
-	t_list	*tmp;
-
-	if (!alst || !new)
-		return ;
-	if (!*alst)
-	{
-		*alst = new;
-	}
-	else
-	{
-		tmp = *alst;
-		while (tmp->next)
-			tmp = tmp->next;
-		tmp->next = new;
-	}
+    if (alst->end)
+    {
+        alst->end->next = new;
+        alst->end = new;
+    }
+    else
+    {
+        alst->end = new;
+        alst->begin = new;
+    }
+    alst->len += 1;
 }

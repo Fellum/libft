@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstat.c                                         :+:      :+:    :+:   */
+/*   ft_lstinit.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,21 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_list.h"
+#include "ft_string.h"
 
-void	*ft_lstat(t_list *alst, size_t at)
+t_list	*ft_lstinit()
 {
-	size_t cur;
-
-	if (!alst)
-		return (NULL);
-	cur = 0;
-	while (alst)
-	{
-		if (cur == at)
-			return (alst);
-		alst = alst->next;
-		cur++;
-	}
-	return (NULL);
+	return (ft_memalloc(sizeof(t_list)));
 }
