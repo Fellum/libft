@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mcanhand <mcanhand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 18:50:39 by jleann            #+#    #+#             */
-/*   Updated: 2019/04/05 18:50:40 by jleann           ###   ########.fr       */
+/*   Created: 2019/05/22 15:18:31 by jleann            #+#    #+#             */
+/*   Updated: 2019/06/20 15:01:53 by mcanhand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "ft_printf.h"
 
-void	ft_lstaddend(t_list *list, t_list_node *new)
+int			ft_printf(const char *format, ...)
 {
-	if (list->end)
-	{
-		list->end->next = new;
-		list->end = new;
-	}
-	else
-	{
-		list->end = new;
-		list->begin = new;
-	}
-	list->len += 1;
+	va_list		args;
+	int			res;
+
+	va_start(args, format);
+	res = ft_vdprintf(1, format, &args);
+	va_end(args);
+	return (res);
 }

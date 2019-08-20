@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstnew_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "ft_list.h"
+#include "ft_string.h"
 
 t_list_node				*ft_lstnew_node(void *content, size_t content_size)
 {
@@ -19,14 +20,19 @@ t_list_node				*ft_lstnew_node(void *content, size_t content_size)
 	res = malloc(sizeof(t_list));
 	if (!res)
 		return (NULL);
-	if (content == NULL)
+	if (content == NULL || content_size == 0)
 	{
 		res->content = NULL;
 		res->content_size = 0;
 		res->next = NULL;
 		return (res);
 	}
-	res->content = content;
+	if (!(res->content = malloc(content_size)))
+	{
+		free(res);
+		return (NULL);
+	}
+	ft_memcpy(res->content, content, content_size);
 	res->content_size = content_size;
 	res->next = NULL;
 	return (res);

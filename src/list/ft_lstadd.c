@@ -12,17 +12,17 @@
 
 #include "ft_list.h"
 
-void    ft_lstadd(t_list *alst, t_list_node *new)
+void	ft_lstadd(t_list *list, t_list_node *new)
 {
-    if (alst->begin)
-    {
-        new->next = alst->begin;
-        alst->begin = new;
-    }
-    else
-    {
-        alst->begin = new;
-        alst->end = new;
-    }
-    alst->len += 1;
+	if (list->begin)
+	{
+		new->next = list->begin;
+		list->begin = new;
+	}
+	else
+	{
+		list->begin = new;
+		list->end = new;
+	}
+	list->len += 1;
 }

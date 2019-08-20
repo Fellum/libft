@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
+/*   fill_with_chars.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mcanhand <mcanhand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 18:50:39 by jleann            #+#    #+#             */
-/*   Updated: 2019/04/05 18:50:40 by jleann           ###   ########.fr       */
+/*   Created: 2019/06/19 19:42:20 by mcanhand          #+#    #+#             */
+/*   Updated: 2019/06/20 18:14:54 by mcanhand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "libft.h"
+#include <stdlib.h>
 
-void	ft_lstaddend(t_list *list, t_list_node *new)
+char	*fill_with_chars(int num, char c)
 {
-	if (list->end)
+	char *str;
+
+	if (num > 0)
 	{
-		list->end->next = new;
-		list->end = new;
+		if (!(str = ft_strnew(num)))
+			return (NULL);
+		ft_memset(str, c, num);
+		return (str);
 	}
-	else
-	{
-		list->end = new;
-		list->begin = new;
-	}
-	list->len += 1;
+	return (NULL);
 }

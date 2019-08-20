@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
+/*   ft_calc_string_len.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: jleann <jleann@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 18:50:39 by jleann            #+#    #+#             */
-/*   Updated: 2019/04/05 18:50:40 by jleann           ###   ########.fr       */
+/*   Created: 2019/06/05 16:06:52 by mcanhand          #+#    #+#             */
+/*   Updated: 2019/06/19 20:09:01 by mcanhand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#include "libft.h"
 
-void	ft_lstaddend(t_list *list, t_list_node *new)
+size_t	ft_calc_string_len(t_list *lst)
 {
-	if (list->end)
+	size_t		sum_length;
+	t_list_node	*cur;
+
+	sum_length = 0;
+	cur = lst->begin;
+	while (cur)
 	{
-		list->end->next = new;
-		list->end = new;
+		sum_length += cur->content_size ? cur->content_size - 1 : 0;
+		cur = cur->next;
 	}
-	else
-	{
-		list->end = new;
-		list->begin = new;
-	}
-	list->len += 1;
+	return (sum_length);
 }

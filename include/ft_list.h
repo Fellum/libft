@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list.h                                        :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -17,23 +17,23 @@
 
 typedef	struct			s_list_node
 {
-    void			    *content;
-    size_t			    content_size;
-    struct s_list_node	*next;
+	void				*content;
+	size_t				content_size;
+	struct s_list_node	*next;
 }						t_list_node;
 
-typedef struct          s_list
+typedef struct			s_list
 {
-    t_list_node *begin;
-    t_list_node *end;
-    size_t      len;
-}                       t_list;
+	t_list_node	*begin;
+	t_list_node	*end;
+	size_t		len;
+}						t_list;
 
-t_list                  *ft_lstinit();
+t_list					*ft_lstinit();
 t_list_node				*ft_lstnew_node(void *content, size_t content_size);
 void					ft_lstadd(t_list *alst, t_list_node *new);
 void					ft_lstaddend(t_list *alst, t_list_node *new);
 void					*ft_lstfind(t_list *alst, void *content,
-                                    int (*f)(void *, void *));
+									int (*f)(void *, void *));
 
 #endif

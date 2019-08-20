@@ -69,9 +69,9 @@ int		endl_found_case(char **fds, char **line, char *tmp)
 
 int		ft_get_next_line(const int fd, char **line)
 {
-	static char *fds[GNL_MAX_FD];
-	char			*tmp;
-	
+	static char	*fds[GNL_MAX_FD];
+	char		*tmp;
+
 	if (fd < 0 || fd > GNL_MAX_FD || !line || BUFF_SIZE + 1 < 1)
 		return (GNL_ERROR);
 	if ((!fds[fd] || (fds[fd] && !(tmp = ft_strchr(fds[fd], '\n')))) &&

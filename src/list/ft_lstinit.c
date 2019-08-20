@@ -13,7 +13,7 @@
 #include "ft_list.h"
 #include "ft_string.h"
 
-t_list	*ft_lstinit()
+t_list	*ft_lstinit(void)
 {
 	return (ft_memalloc(sizeof(t_list)));
 }

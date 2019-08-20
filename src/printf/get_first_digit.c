@@ -1,28 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
+/*   get_first_digit.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mcanhand <mcanhand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 18:50:39 by jleann            #+#    #+#             */
-/*   Updated: 2019/04/05 18:50:40 by jleann           ###   ########.fr       */
+/*   Created: 2019/06/20 17:49:12 by mcanhand          #+#    #+#             */
+/*   Updated: 2019/06/20 17:49:15 by mcanhand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
-
-void	ft_lstaddend(t_list *list, t_list_node *new)
+int			get_first_dig(unsigned num)
 {
-	if (list->end)
-	{
-		list->end->next = new;
-		list->end = new;
-	}
-	else
-	{
-		list->end = new;
-		list->begin = new;
-	}
-	list->len += 1;
+	int res;
+
+	res = 1;
+	while (num / res > 9)
+		res *= 10;
+	return (num / res);
 }

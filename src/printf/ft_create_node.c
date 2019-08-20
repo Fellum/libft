@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
+/*   ft_create_node.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mcanhand <mcanhand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 18:50:39 by jleann            #+#    #+#             */
-/*   Updated: 2019/04/05 18:50:40 by jleann           ###   ########.fr       */
+/*   Created: 2019/06/12 15:20:50 by mcanhand          #+#    #+#             */
+/*   Updated: 2019/06/12 17:24:45 by mcanhand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-void	ft_lstaddend(t_list *list, t_list_node *new)
+int		create_node(void *str, size_t len, t_list *lst)
 {
-	if (list->end)
-	{
-		list->end->next = new;
-		list->end = new;
-	}
-	else
-	{
-		list->end = new;
-		list->begin = new;
-	}
-	list->len += 1;
+	t_list_node	*tmp_lst;
+
+	if (!(tmp_lst = ft_lstnew_node(str, len)))
+		return (-1);
+	ft_lstaddend(lst, tmp_lst);
+	free(str);
+	return (0);
 }

@@ -1,28 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
+/*   float_to_str.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: mcanhand <mcanhand@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/05 18:50:39 by jleann            #+#    #+#             */
-/*   Updated: 2019/04/05 18:50:40 by jleann           ###   ########.fr       */
+/*   Created: 2019/06/19 19:27:55 by mcanhand          #+#    #+#             */
+/*   Updated: 2019/06/19 19:28:05 by mcanhand         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_list.h"
+#ifndef FLOAT_TO_STR_H
+# define FLOAT_TO_STR_H
 
-void	ft_lstaddend(t_list *list, t_list_node *new)
-{
-	if (list->end)
-	{
-		list->end->next = new;
-		list->end = new;
-	}
-	else
-	{
-		list->end = new;
-		list->begin = new;
-	}
-	list->len += 1;
-}
+void	append_string(char **res, char *str);
+char	*float_part_to_str(unsigned *longnum, int precision);
+char	*int_part_to_str(unsigned *longnum);
+#endif
