@@ -15,13 +15,13 @@
 
 # include <stdarg.h>
 # include <stdint.h>
-# include "_ft_printf.h"
+# include "ft_printf_.h"
 
 int			d_conversions(t_params ft, va_list *args, t_list *lst);
 int			x_conversions(t_params ft, va_list *args, t_list *lst);
 int			o_conversions(t_params ft, va_list *args, t_list *lst);
 int			u_conversions(t_params ft, va_list *args, t_list *lst);
-void		f_conversions(t_params ft, va_list *args, t_list *lst);
+int			f_conversions(t_params ft, va_list *args, t_list *lst);
 int			c_conversions(t_params ft, va_list *args, t_list *lst);
 int			s_conversions(t_params ft, va_list *args, t_list *lst);
 int			p_conversions(t_params ft, va_list *args, t_list *lst);

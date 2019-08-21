@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FT_PRINTF_H
-# define _FT_PRINTF_H
+#ifndef FT_PRINTF__H
+# define FT_PRINTF__H
 
 # include <stdarg.h>
 # include <string.h>

@@ -17,7 +17,10 @@ int		create_node(void *str, size_t len, t_list *lst)
 	t_list_node	*tmp_lst;
 
 	if (!(tmp_lst = ft_lstnew_node(str, len)))
+	{
+		free(str);
 		return (-1);
+	}
 	ft_lstaddend(lst, tmp_lst);
 	free(str);
 	return (0);

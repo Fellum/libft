@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "_ft_printf.h"
+#include "ft_printf_.h"
 #include "ft_string.h"
 #include <stdlib.h>
 
@@ -74,7 +74,7 @@ void	right_part(t_params ft, long double val, size_t len, t_list *lst)
 	}
 }
 
-void	f_conversions(t_params ft, va_list *args, t_list *lst)
+int		f_conversions(t_params ft, va_list *args, t_list *lst)
 {
 	char		*res;
 	long double	val;
@@ -88,10 +88,7 @@ void	f_conversions(t_params ft, va_list *args, t_list *lst)
 		ft.flags &= ~ZERO_FLAG;
 		ft.flags &= ~HASH_FLAG;
 		if (val != 1 * val)
-		{
-			ft.flags &= ~SPACE_FLAG;
-			ft.flags &= ~PLUS_FLAG;
-		}
+			ft.flags &= ~SPACE_FLAG | ~PLUS_FLAG;
 		res = ft_strdup((val != 1 * val) ? "nan" : "inf");
 	}
 	else
@@ -101,4 +98,5 @@ void	f_conversions(t_params ft, va_list *args, t_list *lst)
 	left_part(ft, val, len, lst);
 	create_node(res, len + 1, lst);
 	right_part(ft, val, len, lst);
+	return (0);
 }

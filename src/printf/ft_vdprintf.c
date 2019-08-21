@@ -51,13 +51,11 @@ static int		main_loop(const char *format, va_list *args, t_list *res_lst)
 		while (*tmp && *tmp != '%')
 			tmp++;
 		tmp_node = NULL;
-		if (tmp - format && !(tmp_node = ft_lstnew_node(ft_strsub(format, 0, tmp - format),
-				tmp - format + 1)))
+		if (tmp - format && create_node(ft_strsub(format, 0, tmp - format),
+				tmp - format + 1, res_lst) == -1)
 			return (-1);
-		if (tmp_node)
-			ft_lstaddend(res_lst, tmp_node);
 		format = tmp;
-		if (*tmp == '%' && print_arg(&format, args, res_lst) != 0)
+		if (*tmp == '%' && print_arg(&format, args, res_lst) == -1)
 			return (-1);
 	}
 	return (0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   d_conversions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mcanhand <mcanhand@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jleann <jleann@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/29 18:45:25 by mcanhand          #+#    #+#             */
-/*   Updated: 2019/06/20 18:22:37 by mcanhand         ###   ########.fr       */
+/*   Created: 2019/05/29 18:45:25 by jleann            #+#    #+#             */
+/*   Updated: 2019/06/20 18:22:37 by jleann           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,9 @@ int		d_conversions(t_params ft, va_list *args, t_list *lst)
 
 	str_len = 0;
 	arg_val = convert_flags(ft.flags, args);
-	if ((arg_val != 0) || (ft.precision != 0))
-		num = ft_itoa_base(arg_val, 10, 0);
+	if (((arg_val != 0) || (ft.precision != 0)) && !(num = ft_itoa_base(arg_val,
+			10, 0)))
+		return (-1);
 	((ft.flags & ZERO_FLAG) && (ft.precision != -1)) ?
 				ft.flags &= ~ZERO_FLAG : ft.flags;
 	if ((arg_val != 0) || (ft.precision != 0))
