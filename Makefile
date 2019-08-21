@@ -1,6 +1,6 @@
 L_FT		?= .
 
-FT_NAME		:= libftprintf.a
+FT_NAME		:= libft.a
 
 FT_LNK		:= -L $(L_FT) -l ft
 FT_INC		:= -I $(L_FT)/include
