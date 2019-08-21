@@ -47,16 +47,16 @@ unsigned			get_conv_flags(const char **format);
 char				get_conversion(const char **format);
 
 int					print_conversion(t_params formating, va_list *args,
-                                        t_list *lst);
+									t_list *lst);
 int					ft_before_num(t_params ft, int str_len, int hash,
-                                     t_list *lst);
+									t_list *lst);
 int					ft_after_num(t_params ft, int str_len, t_list *lst,
-                                    int hash);
+								int hash);
 char				*make_double(double val, int precision);
 char				*make_ldouble(long double val, int precision);
 int					create_node(void *str, size_t len, t_list *lst);
 char				*ft_itoa_base(long long n, int bs, int up);
 char				*ft_itoa_base_hex_long(unsigned long long n,
-									   int base, int upr);
+											int base, int upr);
 
 #endif
