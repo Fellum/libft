@@ -12,10 +12,10 @@
 
 #include "ft_list.h"
 
-int	ft_lstiter(t_list *list, int(*f)(t_list_node*))
+int	ft_lstiter(t_list *list, int (*f)(void *))
 {
 	t_list_node	*cur;
-	int 		res;
+	int			res;
 
 	res = 0;
 	cur = list->begin;
