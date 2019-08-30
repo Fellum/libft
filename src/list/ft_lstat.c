@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
+/*   ft_lstat.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,17 @@
 
 #include "ft_list.h"
 
-void	ft_lstaddend(t_list *list, t_list_node *new)
+t_list_node	*ft_lstat(t_list *lst, size_t offset)
 {
-	if (list->end)
+	t_list_node	*res;
+	size_t		cur;
+
+	cur = 0;
+	res = lst->begin;
+	while (cur < offset && res)
 	{
-		list->end->next = new;
-		new->prev = list->end;
-		list->end = new;
+		res = res->next;
+		cur++;
 	}
-	else
-	{
-		list->end = new;
-		list->begin = new;
-	}
-	list->len += 1;
+	return (res);
 }

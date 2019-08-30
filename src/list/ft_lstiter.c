@@ -21,7 +21,7 @@ int	ft_lstiter(t_list *list, int (*f)(void *))
 	cur = list->begin;
 	while (cur)
 	{
-		res += f(cur);
+		res += f(cur->content);
 		cur = cur->next;
 	}
 	return (res);

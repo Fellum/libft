@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddend.c                                     :+:      :+:    :+:   */
+/*   ft_lstmax.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jleann <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,18 +12,22 @@
 
 #include "ft_list.h"
 
-void	ft_lstaddend(t_list *list, t_list_node *new)
+t_list_node	*ft_lstmax(t_list *lst, int (*comp)(void *, void *))
 {
-	if (list->end)
+	t_list_node	*res;
+	t_list_node	*cur_node;
+
+	res = NULL;
+	if (lst->begin)
 	{
-		list->end->next = new;
-		new->prev = list->end;
-		list->end = new;
+		res = lst->begin;
+		cur_node = lst->begin->next;
+		while (cur_node)
+		{
+			if (comp(res, cur_node) < 0)
+				res = cur_node;
+			cur_node = cur_node->next;
+		}
 	}
-	else
-	{
-		list->end = new;
-		list->begin = new;
-	}
-	list->len += 1;
+	return (res);
 }

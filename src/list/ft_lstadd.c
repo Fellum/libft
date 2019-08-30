@@ -17,6 +17,7 @@ void	ft_lstadd(t_list *list, t_list_node *new)
 	if (list->begin)
 	{
 		new->next = list->begin;
+		list->begin->prev = new;
 		list->begin = new;
 	}
 	else
