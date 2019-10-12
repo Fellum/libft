@@ -1,6 +1,7 @@
 *
 !.gitignore
 !Makefile
+!CMakeLists.txt
 !src/
 !src/*
 !src/*/*

@@ -74,5 +74,6 @@ char					**ft_strsplit(char const *s, char c);
 char					*ft_lst_to_str(t_list *lst);
 char					*fill_with_chars(int num, char c);
 size_t					ft_calc_string_len(t_list *lst);
+void					*ft_memdup(void *src, size_t n);
 
 #endif

@@ -9,5 +9,6 @@ aux_source_directory(src/string srcs)
 aux_source_directory(src/list srcl)
 aux_source_directory(src/io srci)
 aux_source_directory(src/printf srcp)
+aux_source_directory(src/vector srcv)
 
-add_library(libft ${srcs} ${srcl} ${srci} ${srcp})
+add_library(libft ${srcs} ${srcl} ${srci} ${srcp} ${srcv})
