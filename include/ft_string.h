@@ -71,7 +71,7 @@ char					*ft_strsub(char const *s, unsigned int start,
 char					*ft_strjoin(char const *s1, char const *s2);
 char					*ft_strtrim(char const *s);
 char					*ft_itoa(int n);
-char					**ft_strsplit(char const *s, char c);
+char					**ft_strsplit(char const *s, const char *seps);
 char					*ft_lst_to_str(t_list *lst);
 char					*fill_with_chars(int num, char c);
 size_t					ft_calc_string_len(t_list *lst);
